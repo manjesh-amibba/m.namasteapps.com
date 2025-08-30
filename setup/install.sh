@@ -128,4 +128,14 @@ copy_ssl "$SSL_SRC_SUB" "$SSL_DEST_SUB" "$SUB_DOMAIN"
 echo "=== Restarting Apache ==="
 systemctl restart apache2
 
+
+# Ensure writable folders exist for runtime
+echo "=== Ensuring runtime writable folders ==="
+for dir in "$MAIN_GIT/writable" "$SUB_GIT/writable"; do
+    mkdir -p "$dir"
+    chown -R www-data:www-data "$dir"
+    chmod -R 775 "$dir"
+done
+
+
 echo "=== Setup Completed Successfully for $MAIN_DOMAIN and $SUB_DOMAIN ==="
