@@ -5,13 +5,13 @@ set -e
 MAIN_DOMAIN="namasteapps.com"
 SUB_DOMAIN="m.$MAIN_DOMAIN"
 
-# Document Roots
-MAIN_DOC_ROOT="/var/www/$MAIN_DOMAIN/public"
-SUB_DOC_ROOT="/var/www/$SUB_DOMAIN/public"
+# Git Clone Paths
+MAIN_GIT="/var/www/$MAIN_DOMAIN"
+SUB_GIT="/var/www/$SUB_DOMAIN"
 
-# Git Root Paths
-MAIN_GIT_ROOT="/var/www/$MAIN_DOMAIN"
-SUB_GIT_ROOT="/var/www/$SUB_DOMAIN"
+# Apache Document Roots (inside git repo)
+MAIN_DOC_ROOT="$MAIN_GIT/public"
+SUB_DOC_ROOT="$SUB_GIT/public"
 
 # Apache Configs
 MAIN_CONF="/etc/apache2/sites-available/$MAIN_DOMAIN.conf"
@@ -19,14 +19,13 @@ SUB_CONF="/etc/apache2/sites-available/$SUB_DOMAIN.conf"
 
 # Git Repositories
 MAIN_REPO="git@github.com:manjesh-amibba/namasteapps.com.git"
-SUB_REPO="https://github.com/manjesh-amibba/m.namasteapps.com.git"
+SUB_REPO="git@github.com:manjesh-amibba/m.namasteapps.com.git"
 
 # SSL Paths
 SSL_SRC_MAIN="/etc/letsencrypt/live/$MAIN_DOMAIN"
-SSL_DEST_MAIN="$MAIN_GIT_ROOT/ssl"
-
+SSL_DEST_MAIN="$MAIN_GIT/ssl"
 SSL_SRC_SUB="/etc/letsencrypt/live/$SUB_DOMAIN"
-SSL_DEST_SUB="$SUB_GIT_ROOT/ssl"
+SSL_DEST_SUB="$SUB_GIT/ssl"
 
 # Ensure script is run as root
 if [ "$EUID" -ne 0 ]; then
@@ -37,12 +36,6 @@ fi
 echo "=== Installing Apache, Git & Certbot if missing ==="
 apt update
 apt install -y apache2 git certbot python3-certbot-apache
-
-# Create Document Roots
-echo "=== Creating Document Roots if missing ==="
-mkdir -p "$MAIN_DOC_ROOT" "$SUB_DOC_ROOT"
-chown -R www-data:www-data /var/www/
-chmod -R 755 /var/www/
 
 # Clone or Pull Git Repositories
 clone_or_pull() {
@@ -61,60 +54,44 @@ clone_or_pull() {
   fi
 }
 
-clone_or_pull "$MAIN_REPO" "$MAIN_GIT_ROOT"
-clone_or_pull "$SUB_REPO" "$SUB_GIT_ROOT"
+clone_or_pull "$MAIN_REPO" "$MAIN_GIT"
+clone_or_pull "$SUB_REPO" "$SUB_GIT"
 
-# Ensure writable folders exist
-echo "=== Ensuring writable folders ==="
-mkdir -p "$MAIN_DOC_ROOT/writable" "$SUB_DOC_ROOT/writable"
-chown -R www-data:www-data "$MAIN_DOC_ROOT/writable" "$SUB_DOC_ROOT/writable"
-chmod -R 775 "$MAIN_DOC_ROOT/writable" "$SUB_DOC_ROOT/writable"
+# Create Apache VirtualHost configs if missing
+create_vhost() {
+  local DOMAIN=$1
+  local DOC_ROOT=$2
+  local CONF=$3
+  local ALIAS=$4
 
-# Create Apache VirtualHost configs only if missing
-if [ ! -f "$MAIN_CONF" ]; then
-  echo "=== Creating Apache VirtualHost for $MAIN_DOMAIN ==="
-  cat > "$MAIN_CONF" <<EOF
+  if [ ! -f "$CONF" ]; then
+    echo "=== Creating Apache VirtualHost for $DOMAIN ==="
+    cat > "$CONF" <<EOF
 <VirtualHost *:80>
-    ServerName $MAIN_DOMAIN
-    ServerAlias www.$MAIN_DOMAIN
-    DocumentRoot $MAIN_DOC_ROOT
+    ServerName $DOMAIN
+    $( [ -n "$ALIAS" ] && echo "ServerAlias $ALIAS" )
+    DocumentRoot $DOC_ROOT
 
-    <Directory $MAIN_DOC_ROOT>
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Require all granted
-    </Directory>
-
-    RewriteEngine On
-    RewriteCond %{HTTP_HOST} ^www\.$MAIN_DOMAIN$ [NC]
-    RewriteRule ^(.*)$ https://$MAIN_DOMAIN/\$1 [L,R=301]
-</VirtualHost>
-EOF
-fi
-
-if [ ! -f "$SUB_CONF" ]; then
-  echo "=== Creating Apache VirtualHost for $SUB_DOMAIN ==="
-  cat > "$SUB_CONF" <<EOF
-<VirtualHost *:80>
-    ServerName $SUB_DOMAIN
-    DocumentRoot $SUB_DOC_ROOT
-
-    <Directory $SUB_DOC_ROOT>
+    <Directory $DOC_ROOT>
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
     </Directory>
 </VirtualHost>
 EOF
-fi
+  fi
+}
 
-# Enable Apache Modules and Sites
+create_vhost "$MAIN_DOMAIN" "$MAIN_DOC_ROOT" "$MAIN_CONF" "www.$MAIN_DOMAIN"
+create_vhost "$SUB_DOMAIN" "$SUB_DOC_ROOT" "$SUB_CONF" ""
+
+# Enable Apache modules and sites
 echo "=== Enabling Apache Modules and Sites ==="
 a2enmod rewrite ssl headers || true
 a2ensite "$MAIN_DOMAIN.conf" "$SUB_DOMAIN.conf" || true
 systemctl reload apache2
 
-# Obtain SSL Certificates only if not already valid
+# Obtain SSL Certificates if missing
 echo "=== Checking SSL Certificates ==="
 if ! certbot certificates | grep -q "$MAIN_DOMAIN"; then
   echo "=== Obtaining SSL Certificates ==="
@@ -123,34 +100,18 @@ else
   echo "=== SSL Certificates already exist, skipping ==="
 fi
 
-# Add HTTPS redirect if not already present
-add_https_redirect() {
-  local CONF=$1
-  if ! grep -q "RewriteCond %{HTTPS}" "$CONF"; then
-    sed -i '/<\/VirtualHost>/i \
-    RewriteEngine On\n    RewriteCond %{HTTPS} off\n    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]\n' "$CONF"
-  fi
-}
-
-add_https_redirect "$MAIN_CONF"
-add_https_redirect "$SUB_CONF"
-
-# Restart Apache safely
-echo "=== Restarting Apache ==="
-systemctl restart apache2
-
-# Copy SSL files only if updated
-copy_ssl_files() {
+# Copy SSL files safely
+copy_ssl() {
   local SRC=$1
   local DEST=$2
   local DOMAIN=$3
 
-  echo "=== Syncing SSL files for $DOMAIN ==="
+  echo "=== Copying SSL files for $DOMAIN ==="
   mkdir -p "$DEST"
 
   for file in cert.pem chain.pem privkey.pem; do
     target="$DEST/$DOMAIN.${file/.pem/.crt}"
-    if [ "$SRC/$file" -nt "$target" ] || [ ! -f "$target" ]; then
+    if [ ! -f "$target" ] || [ "$SRC/$file" -nt "$target" ]; then
       case $file in
         cert.pem) cp "$SRC/$file" "$DEST/$DOMAIN.crt" ;;
         chain.pem) cp "$SRC/$file" "$DEST/$DOMAIN.chain.crt" ;;
@@ -160,7 +121,11 @@ copy_ssl_files() {
   done
 }
 
-copy_ssl_files "$SSL_SRC_MAIN" "$SSL_DEST_MAIN" "$MAIN_DOMAIN"
-copy_ssl_files "$SSL_SRC_SUB" "$SSL_DEST_SUB" "$SUB_DOMAIN"
+copy_ssl "$SSL_SRC_MAIN" "$SSL_DEST_MAIN" "$MAIN_DOMAIN"
+copy_ssl "$SSL_SRC_SUB" "$SSL_DEST_SUB" "$SUB_DOMAIN"
+
+# Restart Apache safely
+echo "=== Restarting Apache ==="
+systemctl restart apache2
 
 echo "=== Setup Completed Successfully for $MAIN_DOMAIN and $SUB_DOMAIN ==="
