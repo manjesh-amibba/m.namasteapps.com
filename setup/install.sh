@@ -9,6 +9,10 @@ SUB_DOMAIN="m.$MAIN_DOMAIN"
 MAIN_DOC_ROOT="/var/www/$MAIN_DOMAIN/public"
 SUB_DOC_ROOT="/var/www/$SUB_DOMAIN/public"
 
+# Git Root Paths
+MAIN_GIT_ROOT="/var/www/$MAIN_DOMAIN"
+SUB_GIT_ROOT="/var/www/$SUB_DOMAIN"
+
 # Apache Configs
 MAIN_CONF="/etc/apache2/sites-available/$MAIN_DOMAIN.conf"
 SUB_CONF="/etc/apache2/sites-available/$SUB_DOMAIN.conf"
@@ -19,10 +23,10 @@ SUB_REPO="https://github.com/manjesh-amibba/m.namasteapps.com.git"
 
 # SSL Paths
 SSL_SRC_MAIN="/etc/letsencrypt/live/$MAIN_DOMAIN"
-SSL_DEST_MAIN="/var/www/$MAIN_DOMAIN/ssl"
+SSL_DEST_MAIN="$MAIN_GIT_ROOT/ssl"
 
 SSL_SRC_SUB="/etc/letsencrypt/live/$SUB_DOMAIN"
-SSL_DEST_SUB="/var/www/$SUB_DOMAIN/ssl"
+SSL_DEST_SUB="$SUB_GIT_ROOT/ssl"
 
 # Ensure script is run as root
 if [ "$EUID" -ne 0 ]; then
@@ -41,23 +45,24 @@ chown -R www-data:www-data /var/www/
 chmod -R 755 /var/www/
 
 # Clone or Pull Git Repositories
-if [ -d "$MAIN_DOC_ROOT/.git" ]; then
-  echo "=== Pulling latest changes for $MAIN_DOMAIN ==="
-  git -C "$MAIN_DOC_ROOT" reset --hard
-  git -C "$MAIN_DOC_ROOT" pull
-else
-  echo "=== Cloning repository for $MAIN_DOMAIN ==="
-  git clone "$MAIN_REPO" "$MAIN_DOC_ROOT"
-fi
+clone_or_pull() {
+  local REPO=$1
+  local DIR=$2
 
-if [ -d "$SUB_DOC_ROOT/.git" ]; then
-  echo "=== Pulling latest changes for $SUB_DOMAIN ==="
-  git -C "$SUB_DOC_ROOT" reset --hard
-  git -C "$SUB_DOC_ROOT" pull
-else
-  echo "=== Cloning repository for $SUB_DOMAIN ==="
-  git clone "$SUB_REPO" "$SUB_DOC_ROOT"
-fi
+  if [ -d "$DIR/.git" ]; then
+    echo "=== Pulling latest changes for $DIR ==="
+    git -C "$DIR" reset --hard
+    git -C "$DIR" pull
+  elif [ -z "$(ls -A $DIR)" ]; then
+    echo "=== Cloning repository into $DIR ==="
+    git clone "$REPO" "$DIR"
+  else
+    echo "⚠️ $DIR exists and is not a git repository. Skipping clone."
+  fi
+}
+
+clone_or_pull "$MAIN_REPO" "$MAIN_GIT_ROOT"
+clone_or_pull "$SUB_REPO" "$SUB_GIT_ROOT"
 
 # Ensure writable folders exist
 echo "=== Ensuring writable folders ==="
@@ -119,14 +124,16 @@ else
 fi
 
 # Add HTTPS redirect if not already present
-if ! grep -q "RewriteCond %{HTTPS}" "$MAIN_CONF"; then
-  sed -i '/<\/VirtualHost>/i \
-    RewriteEngine On\n    RewriteCond %{HTTPS} off\n    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]\n' "$MAIN_CONF"
-fi
-if ! grep -q "RewriteCond %{HTTPS}" "$SUB_CONF"; then
-  sed -i '/<\/VirtualHost>/i \
-    RewriteEngine On\n    RewriteCond %{HTTPS} off\n    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]\n' "$SUB_CONF"
-fi
+add_https_redirect() {
+  local CONF=$1
+  if ! grep -q "RewriteCond %{HTTPS}" "$CONF"; then
+    sed -i '/<\/VirtualHost>/i \
+    RewriteEngine On\n    RewriteCond %{HTTPS} off\n    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]\n' "$CONF"
+  fi
+}
+
+add_https_redirect "$MAIN_CONF"
+add_https_redirect "$SUB_CONF"
 
 # Restart Apache safely
 echo "=== Restarting Apache ==="
@@ -142,7 +149,8 @@ copy_ssl_files() {
   mkdir -p "$DEST"
 
   for file in cert.pem chain.pem privkey.pem; do
-    if [ "$SRC/$file" -nt "$DEST/$DOMAIN.${file/.pem/.crt}" ]; then
+    target="$DEST/$DOMAIN.${file/.pem/.crt}"
+    if [ "$SRC/$file" -nt "$target" ] || [ ! -f "$target" ]; then
       case $file in
         cert.pem) cp "$SRC/$file" "$DEST/$DOMAIN.crt" ;;
         chain.pem) cp "$SRC/$file" "$DEST/$DOMAIN.chain.crt" ;;
