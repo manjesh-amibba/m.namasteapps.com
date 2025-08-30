@@ -1,0 +1,960 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>StickyMobile BootStrap</title>
+<link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+<link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+</head>
+
+<body class="theme-light" data-highlight="highlight-red" data-gradient="body-default">
+
+<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+
+<div id="page">
+
+    <div class="header header-fixed header-logo-center">
+        <a href="index.html" class="header-title">Sticky Mobile</a>
+        <a href="#" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+        <a href="#" data-toggle-theme class="header-icon header-icon-4"><i class="fas fa-lightbulb"></i></a>
+    </div>
+
+    <div id="footer-bar" class="footer-bar-1">
+        <a href="index.html"><i class="fa fa-home"></i><span>Home</span></a>
+        <a href="index-components.html"><i class="fa fa-star"></i><span>Features</span></a>
+        <a href="index-pages.html" class="active-nav"><i class="fa fa-heart"></i><span>Pages</span></a>
+        <a href="index-search.html"><i class="fa fa-search"></i><span>Search</span></a>
+        <a href="#" data-menu="menu-settings"><i class="fa fa-cog"></i><span>Settings</span></a>
+    </div>
+
+    <div class="page-content header-clear-medium">
+
+		<!-- Post Item 1 -->
+		<div class="card card-style">
+			<div class="content mb-3">
+				<!-- Avatar and Title -->
+				<div class="d-flex">
+					<div class="align-self-center">
+						<img src="images/pictures/14s.jpg" width="35" class="rounded-xl me-2">
+					</div>
+					<div class="align-self-center ps-1">
+						<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Envato <a href="#" class="ps-2">Follow</a></h5>
+						<h6 class="font-400 opacity-50 font-12 mb-0">Answered by Enabled - October 12th</h6>
+					</div>
+				</div>
+				<!-- Text and Question -->
+				<h4 class="font-17 pt-2">Are Enabled products the best selling mobile items on Envato?</h4>
+				<p class="font-14 line-height-m pt-2 mb-3">
+					Absolutely! Constant updates, great support, super friendly with customers, and hands down best bang for your buck!
+				</p>
+			</div>
+			<div class="responsive-iframe mt-n3 mb-n2">
+				<iframe src='https://www.youtube.com/embed/c9MnSeYYtYY' frameborder='0' allowfullscreen></iframe>
+			</div>
+			<div class="content mb-3">
+				<!-- Stats-->
+				<div class="d-flex">
+					<a href="#" class="m-auto font-12 pe-2 color-theme font-400 opacity-50">123.1K views</a>
+					<a href="#" class="m-auto font-12 pe-2 color-theme font-400 opacity-50" data-menu="menu-upvotes">View 231,512 Upvotes</a>
+					<a href="#" class="m-auto font-12 pe-2 color-theme font-400 opacity-50" data-menu="menu-shares">View Shares</a>
+				</div>
+				<!-- Controls-->
+				<div class="d-flex pt-1">
+					<!-- Like & Dislike-->
+					<div class="d-flex border border-theme rounded-l px-2 py-1">
+						<a href="#" class="border-end theme pe-2">
+							<i class="color-theme opacity-60 fa fa-arrow-circle-up font-12 pe-1"></i>
+							<span class="color-theme font-13">295k</span>
+						</a>
+						<a href="#" class="ps-2">
+							<i class="fa fa-arrow-circle-down opacity-60 color-theme font-13"></i>
+						</a>
+					</div>
+					<!-- Repost -->
+					<a href="#" class="align-self-center ps-3 ms-1">
+						<i class="color-theme opacity-50 fa fa-sync font-12 pe-1"></i>
+						<span class="color-theme font-13">451</span>
+					</a>
+					<!-- Comment Collapse -->
+					<a href="#" class="align-self-center ps-4 no-effect" data-bs-toggle="collapse" data-bs-target="#comment-1">
+						<i class="color-theme opacity-50 far fa-comment font-12 pe-1"></i>
+						<span class="color-theme font-13">351</span>
+					</a>
+					<!-- Share Button -->
+					<a href="#" data-menu="menu-share" class="align-self-center ms-auto px-2">
+						<span><i class="color-theme opacity-50 fa fa-share font-12"></i></span>
+					</a>
+					<!-- Options Button -->
+					<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+						<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+					</a>
+				</div>
+				<!-- Comment Collapse Section -->
+				<div id="comment-1" class="collapse">
+					<div class="divider my-3"></div>
+					<!-- Comment -->
+					<div class="d-flex">
+						<div class="align-self-center">
+							<img src="images/pictures/19s.jpg" width="35" class="rounded-xl me-2">
+						</div>
+						<div class="align-self-center ps-1">
+							<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Jason Young</h5>
+							<h6 class="font-400 opacity-50 font-12 mb-0">October 12th</h6>
+						</div>
+					</div>
+					<p class="font-14 line-height-m pt-2 mb-2">
+						PWA's are awesome, certainly the future. All websites should be a PWA. The feel like Apps!
+					</p>
+					<div class="d-flex pb-1">
+						<!-- Repost -->
+						<a href="#" class="align-self-center">
+							<i class="color-theme opacity-50 fa fa-arrow-circle-up font-12 pe-1"></i>
+							<span class="color-theme font-13">Upvote<span class="opacity-30 ps-2">36</span></span>
+						</a>
+						<a href="#" data-menu="menu-reply" class="align-self-center">
+							<i class="color-theme opacity-50 fa fa-reply font-12 ps-3 pe-1"></i>
+							<span class="color-theme font-13">Reply</span>
+						</a>
+						<!-- Options Button -->
+						<a href="#" data-menu="menu-controls" class="align-self-center ms-auto px-2">
+							<span><i class="color-theme opacity-50 fa fa-arrow-circle-down font-12"></i></span>
+						</a>
+						<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+							<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+						</a>
+					</div>
+					<!-- Nested Reply Box -->
+					<div class="border-start border-theme ms-4 ps-3 mt-3 mb-3">
+						<!-- Nested Reply-->
+						<div class="d-flex">
+							<div class="align-self-center">
+								<img src="images/pictures/13s.jpg" width="35" class="rounded-xl me-2">
+							</div>
+							<div class="align-self-center ps-1">
+								<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Max Imus</h5>
+								<h6 class="font-400 opacity-50 font-12 mb-0">October 12th</h6>
+							</div>
+						</div>
+						<p class="font-14 line-height-m pt-2 mb-2">
+							Exactly! Fast, simple, and they work offline too! Which is more awesome!
+						</p>
+						<div class="d-flex pb-4">
+							<!-- Repost -->
+							<a href="#" class="align-self-center">
+								<i class="color-theme opacity-50 fa fa-arrow-circle-up font-12 pe-1"></i>
+								<span class="color-theme font-13">Upvote<span class="opacity-30 ps-2">36</span></span>
+							</a>
+							<a href="#" data-menu="menu-reply" class="align-self-center">
+								<i class="color-theme opacity-50 fa fa-reply font-12 ps-3 pe-1"></i>
+								<span class="color-theme font-13">Reply</span>
+							</a>
+							<!-- Options Button -->
+							<a href="#" data-menu="menu-controls" class="align-self-center ms-auto px-2">
+								<span><i class="color-theme opacity-50 fa fa-arrow-circle-down font-12"></i></span>
+							</a>
+							<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+								<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+							</a>
+						</div>
+						<!-- Nested Reply-->
+						<div class="d-flex">
+							<div class="align-self-center">
+								<img src="images/pictures/14s.jpg" width="35" class="rounded-xl me-2">
+							</div>
+							<div class="align-self-center ps-1">
+								<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Jack Son</h5>
+								<h6 class="font-400 opacity-50 font-12 mb-0">October 12th</h6>
+							</div>
+						</div>
+						<p class="font-14 line-height-m pt-2 mb-2">
+							Love it! Finally my own app!
+						</p>
+						<div class="d-flex pb-1">
+							<!-- Repost -->
+							<a href="#" class="align-self-center">
+								<i class="color-theme opacity-50 fa fa-arrow-circle-up font-12 pe-1"></i>
+								<span class="color-theme font-13">Upvote<span class="opacity-30 ps-2">36</span></span>
+							</a>
+							<a href="#" data-menu="menu-reply" class="align-self-center">
+								<i class="color-theme opacity-50 fa fa-reply font-12 ps-3 pe-1"></i>
+								<span class="color-theme font-13">Reply</span>
+							</a>
+							<!-- Options Button -->
+							<a href="#" data-menu="menu-controls" class="align-self-center ms-auto px-2">
+								<span><i class="color-theme opacity-50 fa fa-arrow-circle-down font-12"></i></span>
+							</a>
+							<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+								<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+							</a>
+						</div>
+						<a href="#" class="rounded-m font-12 mt-2 btn-full color-theme opacity-60">View More Replies <i class="fa fa-angle-down ps-1"></i></a>
+					</div>
+					<!-- Comment -->
+					<div class="d-flex">
+						<div class="align-self-center">
+							<img src="images/pictures/19s.jpg" width="35" class="rounded-xl me-2">
+						</div>
+						<div class="align-self-center ps-1">
+							<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Daniel Lock</h5>
+							<h6 class="font-400 opacity-50 font-12 mb-0">October 12th</h6>
+						</div>
+					</div>
+					<p class="font-14 line-height-m pt-2 mb-2">
+						PWA's are awesome, certainly the future. All websites should be a PWA. The feel like Apps!
+					</p>
+					<div class="d-flex pb-1">
+						<!-- Repost -->
+						<a href="#" class="align-self-center">
+							<i class="color-theme opacity-50 fa fa-arrow-circle-up font-12 pe-1"></i>
+							<span class="color-theme font-13">Upvote<span class="opacity-30 ps-2">36</span></span>
+						</a>
+						<a href="#" data-menu="menu-reply" class="align-self-center">
+							<i class="color-theme opacity-50 fa fa-reply font-12 ps-3 pe-1"></i>
+							<span class="color-theme font-13">Reply</span>
+						</a>
+						<!-- Options Button -->
+						<a href="#" data-menu="menu-controls" class="align-self-center ms-auto px-2">
+							<span><i class="color-theme opacity-50 fa fa-arrow-circle-down font-12"></i></span>
+						</a>
+						<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+							<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+						</a>
+					</div>
+					<a href="#" class="border border-theme rounded-m py-1 font-12 mt-3 btn-full text-center color-theme opacity-60">View More Comments <i class="fa fa-angle-down ps-1"></i></a>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Post Item 2 -->
+		<div class="card card-style">
+			<div class="content mb-3">
+				<!-- Avatar and Title -->
+				<div class="d-flex">
+					<div class="align-self-center">
+						<img src="images/pictures/21s.jpg" width="35" class="rounded-xl me-2">
+					</div>
+					<div class="align-self-center ps-1">
+						<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Envato Customer <a href="#" class="ps-2">Follow</a></h5>
+						<h6 class="font-400 opacity-50 font-12 mb-0">Answered by Enabled - October 12th</h6>
+					</div>
+				</div>
+				<!-- Text and Question -->
+				<h4 class="font-17 pt-2">Are PWA's the best solution for a Mobile Website? Everyone seems to be talking about them? Should I make my site a PWA?</h4>
+				<p class="font-14 line-height-m pt-2 mb-3">
+					Yes, the best way to offer an amazing app experience to your visitors is to go for a PWA. It's the fastest, best and future proof idea.
+				</p>
+			</div>
+			<img src="images/pictures/17w.jpg" class="img-fluid mb-n2 mt-n3">
+			<div class="content mb-3">
+				<!-- Stats-->
+				<div class="d-flex">
+					<a href="#" class="m-auto font-12 pe-2 color-theme font-400 opacity-50">633.2K views</a>
+					<a href="#" class="m-auto font-12 pe-2 color-theme font-400 opacity-50" data-menu="menu-upvotes">View 117,817 Upvotes</a>
+					<a href="#" class="m-auto font-12 pe-2 color-theme font-400 opacity-50" data-menu="menu-shares">View Shares</a>
+				</div>
+				<!-- Controls-->
+				<div class="d-flex pt-1">
+					<!-- Like & Dislike-->
+					<div class="d-flex border border-theme rounded-l px-2 py-1">
+						<a href="#" class="border-end theme pe-2">
+							<i class="color-theme opacity-60 fa fa-arrow-circle-up font-12 pe-1"></i>
+							<span class="color-theme font-13">15k</span>
+						</a>
+						<a href="#" class="ps-2">
+							<i class="fa fa-arrow-circle-down opacity-60 color-theme font-13"></i>
+						</a>
+					</div>
+					<!-- Repost -->
+					<a href="#" class="align-self-center ps-3 ms-1">
+						<i class="color-theme opacity-50 fa fa-sync font-12 pe-1"></i>
+						<span class="color-theme font-13">115</span>
+					</a>
+					<!-- Comment Collapse -->
+					<a href="#" class="align-self-center ps-4 no-effect" data-bs-toggle="collapse" data-bs-target="#comment-2">
+						<i class="color-theme opacity-50 far fa-comment font-12 pe-1"></i>
+						<span class="color-theme font-13">237</span>
+					</a>
+					<!-- Share Button -->
+					<a href="#" data-menu="menu-share" class="align-self-center ms-auto px-2">
+						<span><i class="color-theme opacity-50 fa fa-share font-12"></i></span>
+					</a>
+					<!-- Options Button -->
+					<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+						<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+					</a>
+				</div>
+				<!-- Comment Collapse Section -->
+				<div id="comment-2" class="collapse">
+					<div class="divider my-3"></div>
+					<!-- Comment -->
+					<div class="d-flex">
+						<div class="align-self-center">
+							<img src="images/pictures/19s.jpg" width="35" class="rounded-xl me-2">
+						</div>
+						<div class="align-self-center ps-1">
+							<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Jason Young</h5>
+							<h6 class="font-400 opacity-50 font-12 mb-0">October 12th</h6>
+						</div>
+					</div>
+					<p class="font-14 line-height-m pt-2 mb-2">
+						PWA's are awesome, certainly the future. All websites should be a PWA. The feel like Apps!
+					</p>
+					<div class="d-flex pb-1">
+						<!-- Repost -->
+						<a href="#" class="align-self-center">
+							<i class="color-theme opacity-50 fa fa-arrow-circle-up font-12 pe-1"></i>
+							<span class="color-theme font-13">Upvote<span class="opacity-30 ps-2">36</span></span>
+						</a>
+						<a href="#" data-menu="menu-reply" class="align-self-center">
+							<i class="color-theme opacity-50 fa fa-reply font-12 ps-3 pe-1"></i>
+							<span class="color-theme font-13">Reply</span>
+						</a>
+						<!-- Options Button -->
+						<a href="#" data-menu="menu-controls" class="align-self-center ms-auto px-2">
+							<span><i class="color-theme opacity-50 fa fa-arrow-circle-down font-12"></i></span>
+						</a>
+						<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+							<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+						</a>
+					</div>
+					<!-- Nested Reply Box -->
+					<div class="border-start border-theme ms-4 ps-3 mt-3 mb-3">
+						<!-- Nested Reply-->
+						<div class="d-flex">
+							<div class="align-self-center">
+								<img src="images/pictures/13s.jpg" width="35" class="rounded-xl me-2">
+							</div>
+							<div class="align-self-center ps-1">
+								<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Max Imus</h5>
+								<h6 class="font-400 opacity-50 font-12 mb-0">October 12th</h6>
+							</div>
+						</div>
+						<p class="font-14 line-height-m pt-2 mb-2">
+							Exactly! Fast, simple, and they work offline too! Which is more awesome!
+						</p>
+						<div class="d-flex pb-4">
+							<!-- Repost -->
+							<a href="#" class="align-self-center">
+								<i class="color-theme opacity-50 fa fa-arrow-circle-up font-12 pe-1"></i>
+								<span class="color-theme font-13">Upvote<span class="opacity-30 ps-2">36</span></span>
+							</a>
+							<a href="#" data-menu="menu-reply" class="align-self-center">
+								<i class="color-theme opacity-50 fa fa-reply font-12 ps-3 pe-1"></i>
+								<span class="color-theme font-13">Reply</span>
+							</a>
+							<!-- Options Button -->
+							<a href="#" data-menu="menu-controls" class="align-self-center ms-auto px-2">
+								<span><i class="color-theme opacity-50 fa fa-arrow-circle-down font-12"></i></span>
+							</a>
+							<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+								<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+							</a>
+						</div>
+						<!-- Nested Reply-->
+						<div class="d-flex">
+							<div class="align-self-center">
+								<img src="images/pictures/14s.jpg" width="35" class="rounded-xl me-2">
+							</div>
+							<div class="align-self-center ps-1">
+								<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Jack Son</h5>
+								<h6 class="font-400 opacity-50 font-12 mb-0">October 12th</h6>
+							</div>
+						</div>
+						<p class="font-14 line-height-m pt-2 mb-2">
+							Love it! Finally my own app!
+						</p>
+						<div class="d-flex pb-1">
+							<!-- Repost -->
+							<a href="#" class="align-self-center">
+								<i class="color-theme opacity-50 fa fa-arrow-circle-up font-12 pe-1"></i>
+								<span class="color-theme font-13">Upvote<span class="opacity-30 ps-2">36</span></span>
+							</a>
+							<a href="#" data-menu="menu-reply" class="align-self-center">
+								<i class="color-theme opacity-50 fa fa-reply font-12 ps-3 pe-1"></i>
+								<span class="color-theme font-13">Reply</span>
+							</a>
+							<!-- Options Button -->
+							<a href="#" data-menu="menu-controls" class="align-self-center ms-auto px-2">
+								<span><i class="color-theme opacity-50 fa fa-arrow-circle-down font-12"></i></span>
+							</a>
+							<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+								<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+							</a>
+						</div>
+						<a href="#" class="rounded-m font-12 mt-2 btn-full color-theme opacity-60">View More Replies <i class="fa fa-angle-down ps-1"></i></a>
+					</div>
+					<!-- Comment -->
+					<div class="d-flex">
+						<div class="align-self-center">
+							<img src="images/pictures/19s.jpg" width="35" class="rounded-xl me-2">
+						</div>
+						<div class="align-self-center ps-1">
+							<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Daniel Lock</h5>
+							<h6 class="font-400 opacity-50 font-12 mb-0">October 12th</h6>
+						</div>
+					</div>
+					<p class="font-14 line-height-m pt-2 mb-2">
+						PWA's are awesome, certainly the future. All websites should be a PWA. The feel like Apps!
+					</p>
+					<div class="d-flex pb-1">
+						<!-- Repost -->
+						<a href="#" class="align-self-center">
+							<i class="color-theme opacity-50 fa fa-arrow-circle-up font-12 pe-1"></i>
+							<span class="color-theme font-13">Upvote<span class="opacity-30 ps-2">36</span></span>
+						</a>
+						<a href="#" data-menu="menu-reply" class="align-self-center">
+							<i class="color-theme opacity-50 fa fa-reply font-12 ps-3 pe-1"></i>
+							<span class="color-theme font-13">Reply</span>
+						</a>
+						<!-- Options Button -->
+						<a href="#" data-menu="menu-controls" class="align-self-center ms-auto px-2">
+							<span><i class="color-theme opacity-50 fa fa-arrow-circle-down font-12"></i></span>
+						</a>
+						<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+							<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+						</a>
+					</div>
+					<a href="#" class="border border-theme rounded-m py-1 font-12 mt-3 btn-full text-center color-theme opacity-60">View More Comments <i class="fa fa-angle-down ps-1"></i></a>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Post Item 3 -->
+		<div class="card card-style">
+			<div class="content mb-3">
+				<!-- Avatar and Title -->
+				<div class="d-flex">
+					<div class="align-self-center">
+						<img src="images/pictures/19s.jpg" width="35" class="rounded-sm me-2">
+					</div>
+					<div class="align-self-center ps-1">
+						<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Web Development <a href="#" class="ps-2">Follow</a></h5>
+						<h6 class="font-400 opacity-50 font-12 mb-0">Answered by Enabled - October 12th</h6>
+					</div>
+				</div>
+				<!-- Text and Question -->
+				<h4 class="font-17 pt-2">Are PWA's the best solution for a Mobile Website? Everyone seems to be talking about them? Should I make my site a PWA?</h4>
+				<p class="font-14 line-height-m pt-2 mb-3">
+					Yes, the best way to offer an amazing app experience to your visitors is to go for a PWA. It's the fastest, best and future proof idea.
+				</p>
+				<!-- Featured Section-->
+				<div class="rounded-m border border-theme px-3 py-2 mb-2">
+					<h6 class="font-13 font-600 line-height-m">Featured In</h6>
+					<div class="divider mx-n3 mb-2"></div>
+					<div class="d-flex pt-1">
+						<div class="align-self-center">
+							<img src="images/pictures/5s.jpg" width="35" class="rounded-sm me-2">
+						</div>
+						<div class="align-self-center ps-1">
+							<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Mobile Web Design <a href="#" class="ps-2">Follow</a></h5>
+							<h6 class="font-400 opacity-50 font-12">Posted by Alexandra - Sat</h6>
+						</div>
+					</div>
+				</div>
+				<!-- Stats-->
+				<div class="d-flex">
+					<a href="#" class="m-auto font-12 pe-2 color-theme font-400 opacity-50">633.2K views</a>
+					<a href="#" class="m-auto font-12 pe-2 color-theme font-400 opacity-50" data-menu="menu-upvotes">View 117,817 Upvotes</a>
+					<a href="#" class="m-auto font-12 pe-2 color-theme font-400 opacity-50" data-menu="menu-shares">View Shares</a>
+				</div>
+				<!-- Controls-->
+				<div class="d-flex pt-1">
+					<!-- Like & Dislike-->
+					<div class="d-flex border border-theme rounded-l px-2 py-1">
+						<a href="#" class="border-end theme pe-2">
+							<i class="color-theme opacity-60 fa fa-arrow-circle-up font-12 pe-1"></i>
+							<span class="color-theme font-13">15k</span>
+						</a>
+						<a href="#" class="ps-2">
+							<i class="fa fa-arrow-circle-down opacity-60 color-theme font-13"></i>
+						</a>
+					</div>
+					<!-- Repost -->
+					<a href="#" class="align-self-center ps-3 ms-1">
+						<i class="color-theme opacity-50 fa fa-sync font-12 pe-1"></i>
+						<span class="color-theme font-13">115</span>
+					</a>
+					<!-- Comment Collapse -->
+					<a href="#" class="align-self-center ps-4 no-effect" data-bs-toggle="collapse" data-bs-target="#comment-3">
+						<i class="color-theme opacity-50 far fa-comment font-12 pe-1"></i>
+						<span class="color-theme font-13">237</span>
+					</a>
+					<!-- Share Button -->
+					<a href="#" data-menu="menu-share" class="align-self-center ms-auto px-2">
+						<span><i class="color-theme opacity-50 fa fa-share font-12"></i></span>
+					</a>
+					<!-- Options Button -->
+					<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+						<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+					</a>
+				</div>
+				<!-- Comment Collapse Section -->
+				<div id="comment-3" class="collapse">
+					<div class="divider my-3"></div>
+					<!-- Comment -->
+					<div class="d-flex">
+						<div class="align-self-center">
+							<img src="images/pictures/19s.jpg" width="35" class="rounded-xl me-2">
+						</div>
+						<div class="align-self-center ps-1">
+							<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Jason Young</h5>
+							<h6 class="font-400 opacity-50 font-12 mb-0">October 12th</h6>
+						</div>
+					</div>
+					<p class="font-14 line-height-m pt-2 mb-2">
+						PWA's are awesome, certainly the future. All websites should be a PWA. The feel like Apps!
+					</p>
+					<div class="d-flex pb-1">
+						<!-- Repost -->
+						<a href="#" class="align-self-center">
+							<i class="color-theme opacity-50 fa fa-arrow-circle-up font-12 pe-1"></i>
+							<span class="color-theme font-13">Upvote<span class="opacity-30 ps-2">36</span></span>
+						</a>
+						<a href="#" data-menu="menu-reply" class="align-self-center">
+							<i class="color-theme opacity-50 fa fa-reply font-12 ps-3 pe-1"></i>
+							<span class="color-theme font-13">Reply</span>
+						</a>
+						<!-- Options Button -->
+						<a href="#" data-menu="menu-controls" class="align-self-center ms-auto px-2">
+							<span><i class="color-theme opacity-50 fa fa-arrow-circle-down font-12"></i></span>
+						</a>
+						<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+							<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+						</a>
+					</div>
+					<!-- Nested Reply Box -->
+					<div class="border-start border-theme ms-4 ps-3 mt-3 mb-3">
+						<!-- Nested Reply-->
+						<div class="d-flex">
+							<div class="align-self-center">
+								<img src="images/pictures/13s.jpg" width="35" class="rounded-xl me-2">
+							</div>
+							<div class="align-self-center ps-1">
+								<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Max Imus</h5>
+								<h6 class="font-400 opacity-50 font-12 mb-0">October 12th</h6>
+							</div>
+						</div>
+						<p class="font-14 line-height-m pt-2 mb-2">
+							Exactly! Fast, simple, and they work offline too! Which is more awesome!
+						</p>
+						<div class="d-flex pb-4">
+							<!-- Repost -->
+							<a href="#" class="align-self-center">
+								<i class="color-theme opacity-50 fa fa-arrow-circle-up font-12 pe-1"></i>
+								<span class="color-theme font-13">Upvote<span class="opacity-30 ps-2">36</span></span>
+							</a>
+							<a href="#" data-menu="menu-reply" class="align-self-center">
+								<i class="color-theme opacity-50 fa fa-reply font-12 ps-3 pe-1"></i>
+								<span class="color-theme font-13">Reply</span>
+							</a>
+							<!-- Options Button -->
+							<a href="#" data-menu="menu-controls" class="align-self-center ms-auto px-2">
+								<span><i class="color-theme opacity-50 fa fa-arrow-circle-down font-12"></i></span>
+							</a>
+							<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+								<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+							</a>
+						</div>
+						<!-- Nested Reply-->
+						<div class="d-flex">
+							<div class="align-self-center">
+								<img src="images/pictures/14s.jpg" width="35" class="rounded-xl me-2">
+							</div>
+							<div class="align-self-center ps-1">
+								<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Jack Son</h5>
+								<h6 class="font-400 opacity-50 font-12 mb-0">October 12th</h6>
+							</div>
+						</div>
+						<p class="font-14 line-height-m pt-2 mb-2">
+							Love it! Finally my own app!
+						</p>
+						<div class="d-flex pb-1">
+							<!-- Repost -->
+							<a href="#" class="align-self-center">
+								<i class="color-theme opacity-50 fa fa-arrow-circle-up font-12 pe-1"></i>
+								<span class="color-theme font-13">Upvote<span class="opacity-30 ps-2">36</span></span>
+							</a>
+							<a href="#" data-menu="menu-reply" class="align-self-center">
+								<i class="color-theme opacity-50 fa fa-reply font-12 ps-3 pe-1"></i>
+								<span class="color-theme font-13">Reply</span>
+							</a>
+							<!-- Options Button -->
+							<a href="#" data-menu="menu-controls" class="align-self-center ms-auto px-2">
+								<span><i class="color-theme opacity-50 fa fa-arrow-circle-down font-12"></i></span>
+							</a>
+							<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+								<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+							</a>
+						</div>
+						<a href="#" class="rounded-m font-12 mt-2 btn-full color-theme opacity-60">View More Replies <i class="fa fa-angle-down ps-1"></i></a>
+					</div>
+					<!-- Comment -->
+					<div class="d-flex">
+						<div class="align-self-center">
+							<img src="images/pictures/19s.jpg" width="35" class="rounded-xl me-2">
+						</div>
+						<div class="align-self-center ps-1">
+							<h5 class="font-600 font-14 line-height-s pe-2 mb-0">Daniel Lock</h5>
+							<h6 class="font-400 opacity-50 font-12 mb-0">October 12th</h6>
+						</div>
+					</div>
+					<p class="font-14 line-height-m pt-2 mb-2">
+						PWA's are awesome, certainly the future. All websites should be a PWA. The feel like Apps!
+					</p>
+					<div class="d-flex pb-1">
+						<!-- Repost -->
+						<a href="#" class="align-self-center">
+							<i class="color-theme opacity-50 fa fa-arrow-circle-up font-12 pe-1"></i>
+							<span class="color-theme font-13">Upvote<span class="opacity-30 ps-2">36</span></span>
+						</a>
+						<a href="#" data-menu="menu-reply" class="align-self-center">
+							<i class="color-theme opacity-50 fa fa-reply font-12 ps-3 pe-1"></i>
+							<span class="color-theme font-13">Reply</span>
+						</a>
+						<!-- Options Button -->
+						<a href="#" data-menu="menu-controls" class="align-self-center ms-auto px-2">
+							<span><i class="color-theme opacity-50 fa fa-arrow-circle-down font-12"></i></span>
+						</a>
+						<a href="#" data-menu="menu-controls" class="align-self-center px-2">
+							<span><i class="color-theme opacity-50 fa fa-ellipsis-h font-12"></i></span>
+						</a>
+					</div>
+					<a href="#" class="border border-theme rounded-m py-1 font-12 mt-3 btn-full text-center color-theme opacity-60">View More Comments <i class="fa fa-angle-down ps-1"></i></a>
+
+				</div>
+			</div>
+		</div>
+
+
+        <div class="footer card card-style">
+            <a href="#" class="footer-title"><span class="color-highlight">StickyMobile</span></a>
+            <p class="footer-text"><span>Made with <i class="fa fa-heart color-highlight font-16 ps-2 pe-2"></i> by Enabled</span><br><br>Powered by the best Mobile Website Developer on Envato Market. Elite Quality. Elite Products.</p>
+            <div class="text-center mb-3">
+                <a href="#" class="icon icon-xs rounded-sm shadow-l me-1 bg-facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="icon icon-xs rounded-sm shadow-l me-1 bg-twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="icon icon-xs rounded-sm shadow-l me-1 bg-phone"><i class="fa fa-phone"></i></a>
+                <a href="#" data-menu="menu-share" class="icon icon-xs rounded-sm me-1 shadow-l bg-red-dark"><i class="fa fa-share-alt"></i></a>
+                <a href="#" class="back-to-top icon icon-xs rounded-sm shadow-l bg-dark-light"><i class="fa fa-angle-up"></i></a>
+            </div>
+            <p class="footer-copyright">Copyright &copy; Enabled <span id="copyright-year">2017</span>. All Rights Reserved.</p>
+            <p class="footer-links"><a href="#" class="color-highlight">Privacy Policy</a> | <a href="#" class="color-highlight">Terms and Conditions</a> | <a href="#" class="back-to-top color-highlight"> Back to Top</a></p>
+            <div class="clear"></div>
+        </div>
+
+    </div>
+    <!-- End of Page Content-->
+    <!-- All Menus, Action Sheets, Modals, Notifications, Toasts, Snackbars get Placed outside the <div class="page-content"> -->
+
+	<!-- Menu Reply -->
+	<div id="menu-reply" class="menu menu-box-bottom menu-box-detached" data-menu-height="390">
+		<div class="menu-title mt-n1"><h1>Leave a reply</h1><p class="color-highlight">Tell us what you think</p><a href="#" class="close-menu mt-n1"><i class="fa fa-times"></i></a></div>
+		<div class="content mb-0 mt-2">
+			<div class="input-style has-borders no-icon">
+				<textarea id="form7" placeholder="Enter your message"  style="height:200px"></textarea>
+				<label for="form7" class="color-highlight">Enter your Reply</label>
+			</div>
+			<div class="form-check icon-check mt-n2 mb-3">
+				<input class="form-check-input" type="checkbox" value="" id="check1" checked>
+				<label class="form-check-label" for="check1">I have agree with the <a href="#">Terms of Service</a></label>
+				<i class="icon-check-1 fa fa-square color-gray-dark font-16"></i>
+				<i class="icon-check-2 fa fa-check-circle font-16 color-blue-dark"></i>
+			</div>
+			<a href="#" class="btn btn-full bg-blue-dark font-700 text-uppercase btn-m rounded-sm">Post Reply</a>
+		</div>
+	</div>
+
+	<!-- Menu Shares -->
+	<div id="menu-shares" class="menu menu-box-bottom menu-box-detached" data-menu-height="365">
+		<div class="menu-title mt-n1"><h1>153 Shares</h1><p class="color-highlight">Web Development Post Shares</p><a href="#" class="close-menu mt-n1"><i class="fa fa-times"></i></a></div>
+		<div class="content mb-0 mt-n1">
+			<div class="divider mb-0"></div>
+			<div class="list-group list-custom-large list-icon-0 pb-4">
+				<a href="#" class="border-0 mb-n4">
+					<img src="images/avatars/1s.png" width="30" class="bg-yellow-dark rounded-xl me-3">
+					<strong class="font-300">October 10th</strong>
+					<span>Jane Dawn</span>
+					<i class="fa color-blue-dark mt-n1 opacity-30">Follow</i>
+				</a>
+				<a href="#" class="border-0 mb-n4">
+					<img src="images/avatars/2s.png" width="30" class="bg-gray-dark rounded-xl me-3">
+					<strong class="font-300">October 9th</strong>
+					<span>Alex Joeson</span>
+					<i class="fa color-blue-dark mt-n1 opacity-30">Follow</i>
+				</a>
+				<a href="#" class="border-0 mb-n4">
+					<img src="images/avatars/3s.png" width="30" class="bg-orange-dark rounded-xl me-3">
+					<strong class="font-300">October 8th</strong>
+					<span>Dana Yellow</span>
+					<i class="fa color-blue-dark mt-n1 opacity-30">Follow</i>
+				</a>
+				<a href="#" class="border-0 mb-n4">
+					<img src="images/avatars/4s.png" width="30" class="bg-green-dark rounded-xl me-3">
+					<strong class="font-300">October 7th</strong>
+					<span>Andrew Plum</span>
+					<i class="fa color-blue-dark mt-n1 opacity-30">Follow</i>
+				</a>
+				<a href="#" class="border-0 mb-n4">
+					<img src="images/avatars/5s.png" width="30" class="bg-blue-dark rounded-xl me-3">
+					<strong class="font-300">October 6th</strong>
+					<span>Dan Beard</span>
+					<i class="fa color-blue-dark mt-n1 opacity-30">Follow</i>
+				</a>
+				<a href="#" class="border-0 mb-n4">
+					<img src="images/avatars/1s.png" width="30" class="bg-yellow-dark rounded-xl me-3">
+					<strong class="font-300">October 5th</strong>
+					<span>Jane Dawn</span>
+					<i class="fa color-blue-dark mt-n1 opacity-30">Follow</i>
+				</a>
+				<a href="#" class="border-0 mb-n4">
+					<img src="images/avatars/2s.png" width="30" class="bg-gray-dark rounded-xl me-3">
+					<strong class="font-300">October 4th</strong>
+					<span>Alex Joeson</span>
+					<i class="fa color-blue-dark mt-n1 opacity-30">Follow</i>
+				</a>
+				<a href="#" class="border-0 mb-n4">
+					<img src="images/avatars/3s.png" width="30" class="bg-orange-dark rounded-xl me-3">
+					<strong class="font-300">October 3rd</strong>
+					<span>Dana Yellow</span>
+					<i class="fa color-blue-dark mt-n1 opacity-30">Follow</i>
+				</a>
+				<a href="#" class="border-0 mb-n4">
+					<img src="images/avatars/4s.png" width="30" class="bg-green-dark rounded-xl me-3">
+					<strong class="font-300">October 2nd</strong>
+					<span>Andrew Plum</span>
+					<i class="fa color-blue-dark mt-n1 opacity-30">Follow</i>
+				</a>
+				<a href="#" class="border-0 mb-n4">
+					<img src="images/avatars/5s.png" width="30" class="bg-blue-dark rounded-xl me-3">
+					<strong class="font-300">October 1st</strong>
+					<span>Dan Beard</span>
+					<i class="fa color-blue-dark mt-n1 opacity-30">Follow</i>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Menu Upvotes -->
+	<div id="menu-upvotes" class="menu menu-box-bottom menu-box-detached" data-menu-height="340">
+		<div class="menu-title mt-n1"><h1>117,817 Upvotes</h1><p class="color-highlight">Web Development Post Upvotes</p><a href="#" class="close-menu mt-n1"><i class="fa fa-times"></i></a></div>
+		<div class="content mb-0 mt-n1">
+			<div class="divider mb-2"></div>
+			<div class="list-group list-custom-small list-icon-0 pb-4">
+				<a href="#" class="border-0 mb-n2">
+					<img src="images/avatars/1s.png" width="30" class="bg-yellow-dark rounded-xl me-3">
+					<span>Jane Dawn</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a href="#" class="border-0 mb-n2">
+					<img src="images/avatars/2s.png" width="30" class="bg-gray-dark rounded-xl me-3">
+					<span>Alex Joeson</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a href="#" class="border-0 mb-n2">
+					<img src="images/avatars/3s.png" width="30" class="bg-orange-dark rounded-xl me-3">
+					<span>Dana Yellow</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a href="#" class="border-0 mb-n2">
+					<img src="images/avatars/4s.png" width="30" class="bg-green-dark rounded-xl me-3">
+					<span>Andrew Plum</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a href="#" class="border-0 mb-n2">
+					<img src="images/avatars/5s.png" width="30" class="bg-blue-dark rounded-xl me-3">
+					<span>Dan Beard</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a href="#" class="border-0 mb-n2">
+					<img src="images/avatars/1s.png" width="30" class="bg-yellow-dark rounded-xl me-3">
+					<span>Jane Dawn</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a href="#" class="border-0 mb-n2">
+					<img src="images/avatars/2s.png" width="30" class="bg-gray-dark rounded-xl me-3">
+					<span>Alex Joeson</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a href="#" class="border-0 mb-n2">
+					<img src="images/avatars/3s.png" width="30" class="bg-orange-dark rounded-xl me-3">
+					<span>Dana Yellow</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a href="#" class="border-0 mb-n2">
+					<img src="images/avatars/4s.png" width="30" class="bg-green-dark rounded-xl me-3">
+					<span>Andrew Plum</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a href="#" class="border-0 mb-n2">
+					<img src="images/avatars/5s.png" width="30" class="bg-blue-dark rounded-xl me-3">
+					<span>Dan Beard</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Menu Controls -->
+	<div id="menu-controls" class="menu menu-box-bottom menu-box-detached">
+		<div class="menu-title mt-n1"><h1>Options</h1><p class="color-highlight">Post Settings</p><a href="#" class="close-menu"><i class="fa fa-times"></i></a></div>
+		<div class="content mb-0">
+			<div class="divider mb-0"></div>
+			<div class="list-group list-custom-small list-icon-0">
+				<a href="#">
+					<i class="font-15 fa fa-bookmark color-red-dark"></i>
+					<span class="font-13">Bookmark</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a href="#">
+					<i class="font-15 fa fa-pencil-alt color-gray-dark"></i>
+					<span class="font-13">Edit Question</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a href="#">
+					<i class="font-15 fa fa-arrow-circle-up color-green-dark"></i>
+					<span class="font-13">Upvote</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a href="#">
+					<i class="font-15 fa fa-arrow-circle-down color-red-dark"></i>
+					<span class="font-13">Downvote</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a href="#">
+					<i class="font-15 fa fa-exclamation-triangle color-theme"></i>
+					<span class="font-13">Report</span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+
+    <div id="menu-settings" class="menu menu-box-bottom menu-box-detached">
+        <div class="menu-title mt-0 pt-0"><h1>Settings</h1><p class="color-highlight">Flexible and Easy to Use</p><a href="#" class="close-menu"><i class="fa fa-times"></i></a></div>
+        <div class="divider divider-margins mb-n2"></div>
+        <div class="content">
+            <div class="list-group list-custom-small">
+                <a href="#" data-toggle-theme data-trigger-switch="switch-dark-mode" class="pb-2 ms-n1">
+                    <i class="fa font-12 fa-moon rounded-s bg-highlight color-white me-3"></i>
+                    <span>Dark Mode</span>
+                    <div class="custom-control scale-switch ios-switch">
+                        <input data-toggle-theme type="checkbox" class="ios-input" id="switch-dark-mode">
+                        <label class="custom-control-label" for="switch-dark-mode"></label>
+                    </div>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+            <div class="list-group list-custom-large">
+                <a data-menu="menu-highlights" href="#">
+                    <i class="fa font-14 fa-tint bg-green-dark rounded-s"></i>
+                    <span>Page Highlight</span>
+                    <strong>16 Colors Highlights Included</strong>
+                    <span class="badge bg-highlight color-white">HOT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                <a data-menu="menu-backgrounds" href="#" class="border-0">
+                    <i class="fa font-14 fa-cog bg-blue-dark rounded-s"></i>
+                    <span>Background Color</span>
+                    <strong>10 Page Gradients Included</strong>
+                    <span class="badge bg-highlight color-white">NEW</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Menu Settings Highlights-->
+    <div id="menu-highlights" class="menu menu-box-bottom menu-box-detached">
+        <div class="menu-title"><h1>Highlights</h1><p class="color-highlight">Any Element can have a Highlight Color</p><a href="#" class="close-menu"><i class="fa fa-times"></i></a></div>
+        <div class="divider divider-margins mb-n2"></div>
+        <div class="content">
+            <div class="highlight-changer">
+                <a href="#" data-change-highlight="blue"><i class="fa fa-circle color-blue-dark"></i><span class="color-blue-light">Default</span></a>
+                <a href="#" data-change-highlight="red"><i class="fa fa-circle color-red-dark"></i><span class="color-red-light">Red</span></a>
+                <a href="#" data-change-highlight="orange"><i class="fa fa-circle color-orange-dark"></i><span class="color-orange-light">Orange</span></a>
+                <a href="#" data-change-highlight="pink2"><i class="fa fa-circle color-pink2-dark"></i><span class="color-pink-dark">Pink</span></a>
+                <a href="#" data-change-highlight="magenta"><i class="fa fa-circle color-magenta-dark"></i><span class="color-magenta-light">Purple</span></a>
+                <a href="#" data-change-highlight="aqua"><i class="fa fa-circle color-aqua-dark"></i><span class="color-aqua-light">Aqua</span></a>
+                <a href="#" data-change-highlight="teal"><i class="fa fa-circle color-teal-dark"></i><span class="color-teal-light">Teal</span></a>
+                <a href="#" data-change-highlight="mint"><i class="fa fa-circle color-mint-dark"></i><span class="color-mint-light">Mint</span></a>
+                <a href="#" data-change-highlight="green"><i class="fa fa-circle color-green-light"></i><span class="color-green-light">Green</span></a>
+                <a href="#" data-change-highlight="grass"><i class="fa fa-circle color-green-dark"></i><span class="color-green-dark">Grass</span></a>
+                <a href="#" data-change-highlight="sunny"><i class="fa fa-circle color-yellow-light"></i><span class="color-yellow-light">Sunny</span></a>
+                <a href="#" data-change-highlight="yellow"><i class="fa fa-circle color-yellow-dark"></i><span class="color-yellow-light">Goldish</span></a>
+                <a href="#" data-change-highlight="brown"><i class="fa fa-circle color-brown-dark"></i><span class="color-brown-light">Wood</span></a>
+                <a href="#" data-change-highlight="night"><i class="fa fa-circle color-dark-dark"></i><span class="color-dark-light">Night</span></a>
+                <a href="#" data-change-highlight="dark"><i class="fa fa-circle color-dark-light"></i><span class="color-dark-light">Dark</span></a>
+                <div class="clearfix"></div>
+            </div>
+            <a href="#" data-menu="menu-settings" class="mb-3 btn btn-full btn-m rounded-sm bg-highlight shadow-xl text-uppercase font-900 mt-4">Back to Settings</a>
+        </div>
+    </div>
+    <!-- Menu Settings Backgrounds-->
+    <div id="menu-backgrounds" class="menu menu-box-bottom menu-box-detached">
+        <div class="menu-title"><h1>Backgrounds</h1><p class="color-highlight">Change Page Color Behind Content Boxes</p><a href="#" class="close-menu"><i class="fa fa-times"></i></a></div>
+        <div class="divider divider-margins mb-n2"></div>
+        <div class="content">
+            <div class="background-changer">
+                <a href="#" data-change-background="default"><i class="bg-theme"></i><span class="color-dark-dark">Default</span></a>
+                <a href="#" data-change-background="plum"><i class="body-plum"></i><span class="color-plum-dark">Plum</span></a>
+                <a href="#" data-change-background="magenta"><i class="body-magenta"></i><span class="color-dark-dark">Magenta</span></a>
+                <a href="#" data-change-background="dark"><i class="body-dark"></i><span class="color-dark-dark">Dark</span></a>
+                <a href="#" data-change-background="violet"><i class="body-violet"></i><span class="color-violet-dark">Violet</span></a>
+                <a href="#" data-change-background="red"><i class="body-red"></i><span class="color-red-dark">Red</span></a>
+                <a href="#" data-change-background="green"><i class="body-green"></i><span class="color-green-dark">Green</span></a>
+                <a href="#" data-change-background="sky"><i class="body-sky"></i><span class="color-sky-dark">Sky</span></a>
+                <a href="#" data-change-background="orange"><i class="body-orange"></i><span class="color-orange-dark">Orange</span></a>
+                <a href="#" data-change-background="yellow"><i class="body-yellow"></i><span class="color-yellow-dark">Yellow</span></a>
+                <div class="clearfix"></div>
+            </div>
+            <a href="#" data-menu="menu-settings" class="mb-3 btn btn-full btn-m rounded-sm bg-highlight shadow-xl text-uppercase font-900 mt-4">Back to Settings</a>
+        </div>
+    </div>
+    <!-- Menu Share -->
+    <div id="menu-share" class="menu menu-box-bottom menu-box-detached">
+        <div class="menu-title mt-n1"><h1>Share the Love</h1><p class="color-highlight">Just Tap the Social Icon. We'll add the Link</p><a href="#" class="close-menu"><i class="fa fa-times"></i></a></div>
+        <div class="content mb-0">
+            <div class="divider mb-0"></div>
+            <div class="list-group list-custom-small list-icon-0">
+                <a href="auto_generated" class="shareToFacebook external-link">
+                    <i class="font-18 fab fa-facebook-square color-facebook"></i>
+                    <span class="font-13">Facebook</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                <a href="auto_generated" class="shareToTwitter external-link">
+                    <i class="font-18 fab fa-twitter-square color-twitter"></i>
+                    <span class="font-13">Twitter</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                <a href="auto_generated" class="shareToLinkedIn external-link">
+                    <i class="font-18 fab fa-linkedin color-linkedin"></i>
+                    <span class="font-13">LinkedIn</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                <a href="auto_generated" class="shareToWhatsApp external-link">
+                    <i class="font-18 fab fa-whatsapp-square color-whatsapp"></i>
+                    <span class="font-13">WhatsApp</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                <a href="auto_generated" class="shareToMail external-link border-0">
+                    <i class="font-18 fa fa-envelope-square color-mail"></i>
+                    <span class="font-13">Email</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>
+</body>

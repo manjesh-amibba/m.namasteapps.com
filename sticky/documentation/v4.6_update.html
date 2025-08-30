@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>StickyMobile - Documentation</title>
+<link rel="stylesheet" type="text/css" href="documentation/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="documentation/css/style.css">
+<link rel="stylesheet" type="text/css" href="documentation/css/shCoreDefault.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+</head>
+
+<body >
+
+<div class="container" style="max-width:1280px; margin:0 auto">
+    <div class="row mb-0">
+        <div class="col-12  text-center">
+            <h2 class="pb-3">Version 4.6 - Sticky Admin - Update Guide</h2>
+            <p class="pb-5">
+				Version 4.6 brings a few optimisations to the code of Sticky. Here is an exact step by step update procedure.
+            </p>
+        </div>
+		<div class="col-12">
+			<h3>Via SCSS</h3>
+			<p>
+				If you're updating your CSS using SCSS the following files have changed.<br><br>
+				/scss/sticky/_footer-bar<br>
+				/scss/components/_carousels<br>
+				/scss/components/_cards<br>
+				/scss/components/_search<br>
+			</p>
+
+			<h3>Via CSS</h3>
+			<p>
+				If you're updating your CSS in the classic way, then, download the main package from TF, and add/replace the following lines from style.css in your style.css.<br><br>
+				Add lines 2345 to 2347 to your corresponding code in style.css<br>
+				Replace lines 4179 to 4228 to your corresponding code in style.css<br>
+				Add line 3866 in your corresponding code in style.css
+			</p>
+
+			<h3>New JavaScript</h3>
+			<p>
+			In order to get the best performance from the admin pages using charts JS, these are called only on pages where the <strong>class='graph'</strong> is located. This is detected via JS. The JS functions for the charts can be found inside the /plugins/charts folder.
+			<br><br>
+			<strong style="font-weight:800;">Step 1</strong> In your project, find and delete the plugins/charts/ folder and replace it with the one from Sticky 4.6<br>
+			<strong style="font-weight:800;">Step 2</strong> In custom.js in Sticky 4.6 locate this code - <a href="https://jmp.sh/yhVj76C">https://jmp.sh/yhVj76C</a> on line 1311. In your custom.js locate the same code and replace it with lines from 1311 to 1355 from Sticky 4.6. You will be replacing the entire array.<br>
+			<strong style="font-weight:800;">Step 3</strong> Also, in Sticky 4.6, we are now tracking iOS15 in order to easily adjust future updates for the new design. This is done via the function in custom.js from lines 303 to 313. Copy these lines to your project as well.
+			</p>
+
+			<h3>Having issues updating?</h3>
+			<p>
+				If you're facing any issues updating to the new version of Sticky, please send us a message via our <a href="https://www.enableds.com/contact/">contact form (link)</a>. We'll gladly check your issue and help out in the shortest possible time ( usually less than 2 hours unless we're sleeping )<br><br>
+				Best regards,<br>
+				Enabled
+			</p>
+		</div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="documentation/js/jquery.js"></script>
+<script type="text/javascript" src="documentation/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="documentation/js/custom.js"></script>
+</body>
+
+

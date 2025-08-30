@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>StickyMobile - Documentation</title>
+<link rel="stylesheet" type="text/css" href="documentation/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="documentation/css/style.css">
+<link rel="stylesheet" type="text/css" href="documentation/css/shCoreDefault.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+</head>
+
+<body >
+
+<div class="container" style="max-width:1280px; margin:0 auto">
+    <div class="row mb-0">
+        <div class="col-12  text-center">
+            <h2 class="pb-3">Version 5.4 - Sticky Sidebars - Update Guide</h2>
+            <p class="pb-5">
+				Version 5.4 brings new sidebar designs to Sticky, and with these a few minor changes that must be applied
+            </p>
+        </div>
+		<div class="col-12">
+			<h3>Via SCSS</h3>
+			<p>
+				If you're updating your CSS using SCSS the following files have changed.<br><br>
+				/scss/sticky/_menu.scss<br>
+			</p>
+
+			<h3>Via CSS</h3>
+			<p>
+				Open style.css and, on line 883 add the code you find in the update style css. The new lines added are lines 883 to 941
+			</p>
+
+			<h3>New JavaScript</h3>
+			<p>
+				We also updated the menu-hider / backdrop to improve performance and fix a minor bug that was affecting a few customers in certain situations.
+			<br><br>
+			In your project, open scripts/custom.js and copy lines 27 to to 30 from the updated style.css<br>
+			</p>
+
+			<h3>Having issues updating?</h3>
+			<p>
+				If you're facing any issues updating to the new version of Sticky, please send us a message via our <a href="https://www.enableds.com/contact/">contact form (link)</a>. We'll gladly check your issue and help out in the shortest possible time ( usually less than 2 hours unless we're sleeping )<br><br>
+				Best regards,<br>
+				Enabled
+			</p>
+		</div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="documentation/js/jquery.js"></script>
+<script type="text/javascript" src="documentation/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="documentation/js/custom.js"></script>
+</body>
+
+

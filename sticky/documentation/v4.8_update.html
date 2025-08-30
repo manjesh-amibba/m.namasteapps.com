@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>StickyMobile - Documentation</title>
+<link rel="stylesheet" type="text/css" href="documentation/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="documentation/css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+</head>
+
+<body>
+
+<div class="container" style="max-width:1280px; margin:0 auto">
+    <div class="row mb-0">
+        <div class="col-12  text-center">
+            <h2 class="pb-3">Version 4.8 - Sticky System - Update Guide</h2>
+            <p class="pb-5">
+				Version 4.8 brings WebShare API, Search Headers, OTP and new pages to Sticky. Here is an exact step by step update procedure.
+            </p>
+        </div>
+		<div class="col-12">
+			<h3>Via SCSS</h3>
+			<p>
+				If you're updating your CSS using SCSS the following files have changed.<br><br>
+				/scss/sticky/_header-bar<br>
+				/scss/components/_search<br>
+				/scss/components/_cards<br>
+				/scss/components/_inputs<br>
+			</p>
+
+
+			<h3>Via CSS</h3>
+			<p>
+				In style.css, locate <strong>/*-Footer Menu-*/</strong> using CTRL+F or CMD+F, right above this line add the following
+				<pre style="margin-left:0px">
+.header-search {overflow: hidden;}
+.header-search * {transition: transform 300ms ease;}
+.header-search-active .header-icon, .header-search-active .header-title {transform: translateY(-80px);}
+.header-search .search-box, .header-search input {transform: translateY(80px); border: 0px;}
+.header-search-active .search-box, .header-search-active input {transform: translateY(0px);}
+				</pre>
+				Now, locate <strong>/*Range Sliders*/</strong> using CTRL+F or CMD+F and right above it add the following
+				<pre>
+.otp {
+  width: 50px;
+  height: 50px;
+  border: solid 1px #cacaca;
+}
+
+.otp:focus, .otp:active {
+  outline: solid 1px #000 !important;
+}
+				</pre>
+			</p>
+
+			<h3>New JavaScript</h3>
+			<p>
+				The code bellow will enable WebShare API, the Search Header and OTP page.<br> To add these go to custom.js and locate <strong>//Sharing</strong> using CTRL+F or CMD+F.
+				Replace the entire share function with the code below
+				<pre>
+//Search Header
+var searchHeader = document.querySelectorAll('[data-toggle-search]');
+if(searchHeader){
+	searchHeader.forEach(el => el.addEventListener('click', event => {
+		window.scrollTo({ top: 0, behavior: `smooth` })
+		document.querySelectorAll('.header')[0].classList.toggle('header-search-active');
+	})
+)};
+
+//Sharing
+var shareTitle = document.title;
+var shareText = document.title;
+var shareLink = window.location.href;
+if(document.querySelectorAll('.shareToFacebook, .shareToTwitter, .shareToLinkedIn')[0]){
+	document.querySelectorAll('.shareToFacebook, .shareToTwitter, .shareToLinkedIn, .shareToWhatsApp, .shareToMail').forEach(x => {x.setAttribute('target','_blank');});
+	document.querySelectorAll('.shareToFacebook').forEach( x=> x.setAttribute("href", "https://www.facebook.com/sharer/sharer.php?u="+shareLink));
+	document.querySelectorAll('.shareToTwitter').forEach( x=> x.setAttribute("href", "http://twitter.com/share?text="+shareTitle+"%20"+shareLink));
+	document.querySelectorAll('.shareToPinterest').forEach( x=> x.setAttribute("href", "https://pinterest.com/pin/create/button/?url=" + shareLink));
+	document.querySelectorAll('.shareToWhatsApp').forEach( x=> x.setAttribute("href", "whatsapp://send?text=" + shareLink));
+	document.querySelectorAll('.shareToMail').forEach( x=> x.setAttribute("href", "mailto:?body=" + shareLink));
+	document.querySelectorAll('.shareToLinkedIn').forEach( x=> x.setAttribute("href", "https://www.linkedin.com/shareArticle?mini=true&url="+shareLink+"&title="+shareTitle+"&summary=&source="));
+}
+//Menu Share Web API
+if (navigator.canShare){
+	const shareData = {title: shareTitle, text: shareText, url: shareLink}
+	var shareMenu = document.querySelectorAll('[data-menu="menu-share"], [data-show-share]');
+	if(shareMenu){shareMenu.forEach(el => {el.addEventListener('click', async () => {menu('menu-share', 'hide',0); try {await navigator.share(shareData)} catch(err){}});});}
+}
+
+//OTP Boxes
+var otp = document.querySelectorAll('.otp');
+if(otp[0]){
+	otp.forEach(el => {
+		el.addEventListener('focus', (e) => {el.value = "";})
+		el.addEventListener('input', (e) => {el.nextElementSibling ? el.nextElementSibling.focus() : el.blur();});
+	});
+}
+				</pre>
+			</p>
+
+			<h3>That's it!</h3>
+			<p>
+				Now you can use all the new features added in Sticky 4.8
+			</p>
+
+			<h4>Having issues updating?</h4>
+			<p>
+				If you're facing any issues updating to the new version of Sticky, please send us a message via our <a href="https://www.enableds.com/contact/">contact form (link)</a>. We'll gladly check your issue and help out in the shortest possible time ( usually less than 2 hours unless we're sleeping )<br><br>
+				Best regards,<br>
+				Enabled
+			</p>
+		</div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="documentation/js/jquery.js"></script>
+<script type="text/javascript" src="documentation/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="documentation/js/custom.js"></script>
+</body>
+
+
